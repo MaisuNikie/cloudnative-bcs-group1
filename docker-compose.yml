@@ -20,13 +20,13 @@ services:
       ME_CONFIG_BASICAUTH_USERNAME: root
       ME_CONFIG_BASICAUTH_PASSWORD: pass
 
-  backend:
-    depends_on:
-      - mongo
-    restart: always
-    build: ./backend
-    ports:
-      - 3000:3000
+  # backend:
+  #   depends_on:
+  #     - mongo
+  #   restart: always
+  #   build: ./backend
+  #   ports:
+  #     - 3000:3000
 
   frontend:
     build: ./frontend
