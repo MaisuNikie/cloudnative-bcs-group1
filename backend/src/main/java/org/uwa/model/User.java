@@ -1,19 +1,21 @@
 package org.uwa.model;
 
-import jakarta.persistence.*;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-@Entity
-@Table(name = "users")
+@Document(collection = "users")
 public class User {
 
     @NotBlank(message = "name may not be empty")
     String name;
     String password;
-    @Id
     String email;
+
+    @Id
+    private String id;
 
     @Min(value = 0, message = "age must be positive")
     @Max(value = 101, message = "age must not be over 101")
