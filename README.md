@@ -1,5 +1,6 @@
 # cloudnative-bcs-group1
 - Include `.env` to make docker-compose work
+- You can't leave the passwords empty they have to be filled in.
 
 #### Example `.env`
 ```.env
