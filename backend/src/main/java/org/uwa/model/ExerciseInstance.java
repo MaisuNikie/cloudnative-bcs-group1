@@ -1,7 +1,6 @@
 package org.uwa.model;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -9,9 +8,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import java.time.Instant;
 
 @Document(collection = "exercise_instances")
-@Getter
-@Setter
-public class ExerciseInstance {
+@Data public class ExerciseInstance {
   @Id
   private String id;
 

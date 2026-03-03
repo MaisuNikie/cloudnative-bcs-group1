@@ -1,13 +1,11 @@
 package org.uwa.model;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "exercise_templates")
-@Getter
-@Setter
+@Data
 public class ExerciseTemplate {
   @Id
   private String id;
