@@ -1,0 +1,21 @@
+:root[data-theme="dark"] {
+  --bg-1: #111827;
+  --bg-2: #1f2937;
+
+  --text-1: #f3f4f6;
+  --text-2: #9ca3af;
+
+  --accent-1: #b10a3d;
+  --accent-2: #7a0033;
+
+  --code-loading: #cccccc;
+  --code-error: #e30046;
+  --code-success: #00e318;
+
+  --gradient-1: linear-gradient(116.43deg, #7a0033 50%, #450c1f 100%);
+  --gradient-2: linear-gradient(146.42deg, #001f3d 0%, #411045 100%);
+
+  --color-red: #ff1919;
+  --color-orange: #ff9b19;
+  --color-green: #19ff1d;
+}
