@@ -1,2 +1,4 @@
 .env
 env.version
+
+start-dev-A.sh
