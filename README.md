@@ -14,3 +14,8 @@ Use the correct script to start the project, it should take care of everything a
 .\start-dev.ps1
 .\start-dev.ps1 -Verbose
 ```
+
+## Frontend
+Libraries used for the frontedn:
+- [Headless UI](https://headlessui.com/)
+## Backend
