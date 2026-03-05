@@ -9,7 +9,7 @@ export default function Header() {
 
   const { user, logout } = useAuth();
 
-  const t = useTranslations();
+  const t = useTranslations("header");
 
   const handleLogout = () => {
     logout();
@@ -22,16 +22,16 @@ export default function Header() {
 
   return (
     <header className="flex max-h-min border-b bg-primary">
-      <div className="Wrapper Padding justify-between">
+      <div className="Wrapper Padding justify-between overflow-visible">
         <div className="Center">
-          <h4>{user ? `Logged in as ${user.fullname}` : t("header.welcome")}</h4>
+          <h4>{user ? `Logged in as ${user.fullname}` : t("welcome")}</h4>
         </div>
         <div className="flex Padding">
           <button onClick={user ? handleLogout : handleLogin} aria-label={user ? "Log out" : "Log in"} className="btn">
             <span className="material-symbols-outlined" aria-hidden="true">
               {user ? "logout" : "login"}
             </span>
-            <span>{user ? t("header.nav.logout") : t("header.nav.login")}</span>
+            <span>{user ? t("nav.logout") : t("nav.login")}</span>
           </button>
           <Language />
         </div>

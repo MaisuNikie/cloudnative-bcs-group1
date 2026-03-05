@@ -9,5 +9,15 @@
       "login": "Login",
       "logout": "Logout"
     }
+  },
+  "UserLoginForm": {
+    "button": "login",
+    "label": {
+      "username": "Username",
+      "password": "Password"
+    },
+    "validate": {
+      "error": " - Missing"
+    }
   }
 }

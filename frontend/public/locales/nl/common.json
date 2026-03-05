@@ -9,5 +9,15 @@
       "login": "Inloggen",
       "logout": "Uitloggen"
     }
+  },
+  "UserLoginForm": {
+    "button": "Inloggen",
+    "label": {
+      "username": "Gebruikersnaam",
+      "password": "Wachtwoord"
+    },
+    "validate": {
+      "error": " - Ontbreekt"
+    }
   }
 }

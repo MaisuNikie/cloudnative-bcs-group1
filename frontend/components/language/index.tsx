@@ -1,7 +1,13 @@
 "use client";
 
+import { Menu, MenuButton, MenuItems, MenuItem } from "@headlessui/react";
 import { useRouter, usePathname, useParams } from "next/navigation";
-import { ChangeEvent, useTransition } from "react";
+import { useTransition } from "react";
+
+const languages = [
+  { value: "en", label: "English" },
+  { value: "nl", label: "Nederlands" },
+];
 
 export default function Language() {
   const router = useRouter();
@@ -11,22 +17,38 @@ export default function Language() {
 
   const currentLocale = params?.locale ? (Array.isArray(params.locale) ? params.locale[0] : params.locale) : "en";
 
-  const handleLanguageChange = (event: ChangeEvent<HTMLSelectElement>) => {
-    const newLocale = event.target.value;
-
-    const path = pathname.split("/");
-
-    path[1] = newLocale;
-
-    const newPath = path.join("/");
-
-    router.push(newPath);
+  const handleLanguageChange = (newLocale: string) => {
+    startTransition(() => {
+      const path = pathname.split("/");
+      path[1] = newLocale;
+      router.push(path.join("/"));
+    });
   };
 
+  const currentLanguageLabel = languages.find((l) => l.value === currentLocale)?.label || "Language";
+
   return (
-    <select id="language" className="btn" value={currentLocale} onChange={handleLanguageChange} disabled={isPending}>
-      <option value="en">English</option>
-      <option value="nl">Nederlands</option>
-    </select>
+    <Menu as="div" className="relative inline-block text-left">
+      <MenuButton className="btn">
+        {currentLanguageLabel} <span className="ml-2">▾</span>
+      </MenuButton>
+
+      <MenuItems className="absolute Padding right-0 focus:outline-none">
+        <MenuItems className="Wrapper Border flex-col bg-primary">
+          {languages.map((lang) => (
+            <MenuItem key={lang.value}>
+              {({ active }) => (
+                <button
+                  className={`flex Padding ${active ? "bg-secondary" : ""}`}
+                  onClick={() => handleLanguageChange(lang.value)}
+                >
+                  {lang.label}
+                </button>
+              )}
+            </MenuItem>
+          ))}
+        </MenuItems>
+      </MenuItems>
+    </Menu>
   );
 }

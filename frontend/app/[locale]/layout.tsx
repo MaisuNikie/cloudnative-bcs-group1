@@ -9,21 +9,21 @@ export default async function RootLayout({
   params,
 }: {
   children: React.ReactNode;
-  params: Promise<{ locale: string }>;
+  params: { locale: string };
 }) {
   const { locale } = await params;
-  const messages = await getMessages();
+  const messages = await getMessages({ locale });
 
   return (
     <html lang="en" data-theme="ucll">
       <head>
         <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
       </head>
-      <body>
+      <body className="Wrapper flex-col h-screen w-screen">
         <NextIntlClientProvider locale={locale} messages={messages}>
           <AuthProvider>
             <Header />
-            <main className="Wrapper h-screen min-h-0 bg-primary">{children}</main>
+            <main className="Wrapper Center flex-col bg-primary">{children}</main>
           </AuthProvider>
         </NextIntlClientProvider>
       </body>
