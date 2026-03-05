@@ -3,7 +3,7 @@
 import { useRouter, usePathname, useParams } from "next/navigation";
 import { ChangeEvent, useTransition } from "react";
 
-const Language: React.FC = () => {
+export default function Language() {
   const router = useRouter();
   const pathname = usePathname();
   const params = useParams();
@@ -24,22 +24,9 @@ const Language: React.FC = () => {
   };
 
   return (
-    <div className="ml-6">
-      <label htmlFor="language" className="text-white">
-        Language
-      </label>
-      <select
-        id="language"
-        className="ml-2 p-1 text-black"
-        value={currentLocale}
-        onChange={handleLanguageChange}
-        disabled={isPending}
-      >
-        <option value="en">English</option>
-        <option value="es">Español</option>
-      </select>
-    </div>
+    <select id="language" className="btn" value={currentLocale} onChange={handleLanguageChange} disabled={isPending}>
+      <option value="en">English</option>
+      <option value="nl">Nederlands</option>
+    </select>
   );
-};
-
-export default Language;
+}

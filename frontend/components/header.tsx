@@ -1,53 +1,41 @@
 "use client";
-
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import useAuth from "hooks/useAuth";
 import { useTranslations } from "use-intl";
 import Language from "./language";
 
-const Header: React.FC = () => {
+export default function Header() {
   const router = useRouter();
 
   const { user, logout } = useAuth();
 
   const t = useTranslations();
 
-  const handleLogout = async (event: React.MouseEvent<HTMLAnchorElement>) => {
-    event.preventDefault();
-    await logout();
-    router.push("/");
+  const handleLogout = () => {
+    logout();
+    router.push("/login");
+  };
+
+  const handleLogin = () => {
+    router.push("/login");
   };
 
   return (
-    <header className="p-3 mb-3 border-bottom bg-gradient-to-br from-gray-900 to-gray-600 flex flex-col items-center">
-      <a className="flex  mb-2 md:mb-5 text-white-50 text-3xl text-gray-300">{t("app.title")}</a>
-      <nav className="items-center flex md:flex-row flex-col">
-        <Link href="/" className=" px-4 text-xl text-white  hover:bg-gray-600 rounded-lg">
-          {t("header.nav.home")}
-        </Link>
-        <Link href="/lecturers" className="px-4  text-white text-xl hover:bg-gray-600 rounded-lg">
-          {t("header.nav.lecturers")}
-        </Link>
-        {!user && (
-          <Link href="/login" className="px-4  text-white text-xl hover:bg-gray-600 rounded-lg">
-            {t("header.nav.login")}
-          </Link>
-        )}
-        {user && (
-          <a href="#" onClick={handleLogout} className="px-4  text-white text-xl hover:bg-gray-600 rounded-lg">
-            {t("header.nav.logout")}
-          </a>
-        )}
-        {user && (
-          <div className="text-white ms-5 mt-2 md:mt-0 pt-1 md:pt-0 grow">
-            {t("header.welcome")}, {user.fullname}!
-          </div>
-        )}
-        <Language />
-      </nav>
+    <header className="flex max-h-min border-b bg-primary">
+      <div className="Wrapper Padding justify-between">
+        <div className="Center">
+          <h4>{user ? `Logged in as ${user.fullname}` : t("header.welcome")}</h4>
+        </div>
+        <div className="flex Padding">
+          <button onClick={user ? handleLogout : handleLogin} aria-label={user ? "Log out" : "Log in"} className="btn">
+            <span className="material-symbols-outlined" aria-hidden="true">
+              {user ? "logout" : "login"}
+            </span>
+            <span>{user ? t("header.nav.logout") : t("header.nav.login")}</span>
+          </button>
+          <Language />
+        </div>
+      </div>
     </header>
   );
-};
-
-export default Header;
+}

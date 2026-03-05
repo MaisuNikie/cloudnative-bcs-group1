@@ -4,12 +4,21 @@ import "@styles/globals.css";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 
-const RootLayout = async ({ children, params }: { children: React.ReactNode; params: Promise<{ locale: string }> }) => {
+export default async function RootLayout({
+  children,
+  params,
+}: {
+  children: React.ReactNode;
+  params: Promise<{ locale: string }>;
+}) {
   const { locale } = await params;
   const messages = await getMessages();
 
   return (
-    <html lang="en">
+    <html lang="en" data-theme="ucll">
+      <head>
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+      </head>
       <body>
         <NextIntlClientProvider locale={locale} messages={messages}>
           <AuthProvider>
@@ -20,6 +29,4 @@ const RootLayout = async ({ children, params }: { children: React.ReactNode; par
       </body>
     </html>
   );
-};
-
-export default RootLayout;
+}

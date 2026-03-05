@@ -1,0 +1,13 @@
+{
+  "general": {
+    "error": "Er is een foutmelding, probeer later opnieuw."
+  },
+  "header": {
+    "welcome": "Welkom!",
+    "nav": {
+      "home": "Thuis",
+      "login": "Inloggen",
+      "logout": "Uitloggen"
+    }
+  }
+}
