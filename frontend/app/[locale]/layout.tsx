@@ -14,7 +14,7 @@ const RootLayout = async ({ children, params }: { children: React.ReactNode; par
         <NextIntlClientProvider locale={locale} messages={messages}>
           <AuthProvider>
             <Header />
-            <main className="p-6 min-h-screen flex flex-col items-center">{children}</main>
+            <main className="Wrapper h-screen min-h-0 bg-primary">{children}</main>
           </AuthProvider>
         </NextIntlClientProvider>
       </body>

@@ -6,6 +6,7 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./styles/**/*.{css,scss}",
   ],
+  safelist: ["min-h-0"],
   theme: {
     extend: {
       colors: {
@@ -18,9 +19,9 @@ module.exports = {
         "accent-primary": "var(--accent-1)",
         "accent-secondary": "var(--accent-2)",
 
-        "code-loading": "var(code-loading)",
+        "code-loading": "var(--code-loading)",
         "code-error": "var(--code-error)",
-        "code-success": "var(--code-success)"
+        "code-success": "var(--code-success)",
       },
     },
   },
