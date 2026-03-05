@@ -1,43 +1,42 @@
 @import "./themes/ucll.css";
 @import "./themes/dark.css";
 
-@import "tailwindcss/preflight";
-@import "tailwindcss/utilities";
+@import "tailwindcss";
 
 #__next {
   @apply flex flex-col w-full h-full;
 }
 
-@layer utilities {
-  .bg-gradient-1 {
-    background-image: var(--gradient-1);
-  }
-
-  .bg-gradient-2 {
-    background-image: var(--gradient-2);
-  }
-
-  .Center {
-    @apply flex items-center justify-center;
-  }
-
-  .Wrapper {
-    @apply flex flex-1 min-h-0 overflow-auto;
-  }
-
-  .Gap {
-    @apply gap-3;
-  }
-
-  .Padding {
-    @apply Gap px-6 py-3;
-  }
-
-  .Border {
-    @apply border-2 rounded-md border-tx-secondary;
-  }
+/* Utilities */
+.bg-gradient-1 {
+  background-image: var(--gradient-1);
 }
 
+.bg-gradient-2 {
+  background-image: var(--gradient-2);
+}
+
+@utility util-center {
+  @apply flex items-center justify-center;
+}
+
+@utility util-wrapper {
+  @apply flex flex-1 overflow-auto;
+}
+
+@utility util-gap {
+  @apply gap-3;
+}
+
+@utility util-padding {
+  @apply util-gap px-6 py-3;
+}
+
+@utility util-border {
+  @apply border-2 rounded-md border-tx-secondary;
+}
+
+/* Typography */
 h1 {
   @apply font-extrabold text-3xl my-3 text-tx-secondary;
 }
@@ -56,50 +55,36 @@ h5 {
 h6 {
   @apply font-semibold text-xl my-1 text-tx-secondary;
 }
+
 p {
   @apply text-tx-primary;
-}
-
-.h3-center-letter {
-  @apply w-10 flex justify-center;
-}
-.h4-center-letter {
-  @apply w-9 flex justify-center;
 }
 
 a {
   @apply text-tx-primary;
 }
 
-a:hover h1,
-a:hover h2,
-a:hover h3,
-a:hover h4,
-a:hover h5,
-a:hover h6,
-a:hover p,
 a:hover {
   @apply text-accent-primary;
 }
 
-@layer components {
-  .btn {
-    @apply Center Padding Border rounded bg-gradient-1 text-primary cursor-pointer;
-  }
+/* Components */
+.btn {
+  @apply util-center util-padding util-border rounded bg-gradient-1 text-primary cursor-pointer;
+}
 
-  .btn:hover {
-    @apply bg-accent-primary text-secondary border-accent-secondary;
-  }
+.btn:hover {
+  @apply bg-accent-primary text-secondary border-accent-secondary;
+}
 
-  .btn-secondary {
-    @apply Center Border rounded bg-tx-secondary text-primary cursor-pointer;
-  }
+.btn-secondary {
+  @apply util-center util-border rounded bg-tx-secondary text-primary cursor-pointer;
+}
 
-  .btn-secondary:hover {
-    @apply bg-tx-secondary bg-opacity-30 text-secondary;
-  }
+.btn-secondary:hover {
+  @apply bg-tx-secondary/30 text-secondary;
+}
 
-  .input {
-    @apply Padding Border w-full bg-secondary focus:outline-none focus:ring-2 focus:accent-primary;
-  }
+.input {
+  @apply util-padding util-border w-full bg-secondary focus:outline-none focus:ring-2 focus:ring-accent-primary;
 }

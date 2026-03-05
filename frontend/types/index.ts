@@ -1,3 +1,20 @@
+export type AuthContextType = {
+  user: User | null;
+  login: (userData: User) => void;
+  logout: () => void;
+};
+
+export type User = {
+  firstName?: string;
+  lastName?: string;
+  fullname?: string;
+  email?: string;
+  username?: string;
+  password?: string;
+  role?: string;
+  token?: string;
+};
+
 export type StatusMessage = {
   message: string;
   type: "error" | "success";
