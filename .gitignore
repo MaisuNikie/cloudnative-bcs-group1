@@ -2,3 +2,5 @@
 env.version
 
 start-dev-A.sh
+.vscode
+.idea
