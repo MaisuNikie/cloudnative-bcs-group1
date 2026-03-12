@@ -1,0 +1,33 @@
+:root[data-theme="mocha"] {
+  --base: #1e1e2e;
+  --mantle: #181825;
+  --crust: #11111b;
+  --surface0: #313244;
+  --surface1: #45475a;
+  --surface2: #585b70;
+  --overlay0: #6c7086;
+  --overlay1: #7f849c;
+  --text: #cdd6f4;
+  --subtext0: #a6adc8;
+  --subtext1: #bac2de;
+  --blue: #89b4fa;
+  --mauve: #cba6f7;
+  --red: #f38ba8;
+  --peach: #fab387;
+  --green: #a6e3a1;
+  --yellow: #f9e2af;
+  --teal: #94e2d5;
+
+  --bg-1: var(--base);
+  --bg-2: var(--mantle);
+  --text-1: var(--text);
+  --text-2: var(--subtext0);
+  --accent-1: var(--blue);
+  --accent-2: var(--mauve);
+  --code-loading: var(--overlay1);
+  --code-error: var(--red);
+  --code-success: var(--green);
+  --gradient-1: linear-gradient(116.43deg, var(--blue) 0%, var(--mauve) 100%);
+  --gradient-2: linear-gradient(146.42deg, var(--base) 0%, var(--surface1) 100%);
+  --border: var(--surface0);
+}

@@ -17,5 +17,5 @@ try {
 finally {
     Write-Host "`nCtrl+C detected → shutting down docker-compose..."
 
-    docker-compose down
+    docker compose down
 }

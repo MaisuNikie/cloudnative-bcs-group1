@@ -2,7 +2,7 @@
 
 import React, { createContext, useContext, useState, useEffect, ReactNode } from "react";
 import { AuthContextType, User } from "@types";
-import UserService from "@services/UserService";
+import { logoutRequest } from "@services/UserService";
 
 export const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
@@ -23,7 +23,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
   const logout = async () => {
     try {
-      await UserService.logout();
+      await logoutRequest();
     } catch (error) {
       console.error("Logout failed:", error);
     }

@@ -12,16 +12,14 @@ module.exports = {
       colors: {
         primary: "var(--bg-1)",
         secondary: "var(--bg-2)",
-
         "tx-primary": "var(--text-1)",
         "tx-secondary": "var(--text-2)",
-
         "accent-primary": "var(--accent-1)",
         "accent-secondary": "var(--accent-2)",
-
         "code-loading": "var(--code-loading)",
         "code-error": "var(--code-error)",
         "code-success": "var(--code-success)",
+        "theme-border": "var(--border)",
       },
     },
   },

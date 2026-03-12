@@ -1,8 +1,17 @@
+spring:
+  data:
+    mongodb:
+      uri: ${SPRING_DATA_MONGODB_URI}
+      auto-index-creation: true
+
+app:
+  frontend-url: ${FRONTEND_URL}
+
 cors:
   allowed-origins:
-    - http://localhost:8080
-    -
+    - ${FRONTEND_URL}
+
 application:
   security:
     jwt:
-      secret-key: 404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970
+      secret-key: ${JWT_SECRET_KEY}

@@ -1,5 +1,6 @@
 @import "./themes/ucll.css";
-@import "./themes/dark.css";
+@import "./themes/latte.css";
+@import "./themes/mocha.css";
 
 @tailwind base;
 @tailwind components;
@@ -46,6 +47,10 @@ a:hover {
   @apply text-accent-primary;
 }
 
+label {
+  @apply text-tx-primary;
+}
+
 a:hover h1,
 a:hover h2,
 a:hover h3,
@@ -90,19 +95,19 @@ a:hover p {
 /* Components */
 @layer components {
   .btn {
-    @apply Center Padding Border rounded bg-gradient-1 text-primary cursor-pointer;
+    @apply Center Padding Border rounded bg-gradient-1 text-tx-primary cursor-pointer;
   }
 
   .btn:hover {
-    @apply bg-accent-primary text-secondary border-accent-secondary;
+    @apply bg-accent-primary text-tx-secondary border-accent-secondary;
   }
 
   .btn-secondary {
-    @apply Center Border rounded bg-tx-secondary text-primary cursor-pointer;
+    @apply Center Border rounded bg-tx-secondary cursor-pointer;
   }
 
   .btn-secondary:hover {
-    @apply bg-tx-secondary bg-opacity-30 text-secondary;
+    @apply bg-tx-secondary bg-opacity-30 text-tx-secondary;
   }
 
   .input {

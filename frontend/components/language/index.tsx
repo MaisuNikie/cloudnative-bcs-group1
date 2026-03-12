@@ -39,7 +39,7 @@ export default function Language() {
             <MenuItem key={lang.value}>
               {({ active }) => (
                 <button
-                  className={`flex Padding ${active ? "bg-secondary" : ""}`}
+                  className={`flex Padding ${active ? "bg-secondary text-tx-secondary" : "text-tx-primary"}`}
                   onClick={() => handleLanguageChange(lang.value)}
                 >
                   {lang.label}

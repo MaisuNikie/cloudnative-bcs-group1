@@ -7,12 +7,32 @@ export type AuthContextType = {
 export type User = {
   firstName?: string;
   lastName?: string;
-  fullname?: string;
-  email?: string;
+  fullName?: string;
   username?: string;
+  email?: string;
   password?: string;
+  age?: number;
   role?: string;
   token?: string;
+};
+
+export type AuthenticationRequest = {
+  username: string;
+  password: string;
+};
+
+export type Role = "USER" | "ADMIN";
+
+export function toGrantedAuthority(role: Role): string {
+  return `ROLE_${role}`;
+}
+
+export type AuthenticationResponse = {
+  message: string;
+  token: string;
+  username: string;
+  fullname: string;
+  role: Role;
 };
 
 export type StatusMessage = {
@@ -20,7 +40,7 @@ export type StatusMessage = {
   type: "error" | "success";
 };
 
-export type exerciseTemplate = {
+export type ExerciseTemplate = {
   name: string;
   description: string;
   expectedReps: number;
@@ -28,7 +48,7 @@ export type exerciseTemplate = {
   expectedWeight: number;
 };
 
-export type exerciseInstance = {
+export type ExerciseInstance = {
   reps: number;
   sets: number;
   weight: number;

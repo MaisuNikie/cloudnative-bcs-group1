@@ -2,8 +2,8 @@
 
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import UserService from "@services/UserService";
-import { StatusMessage } from "@types";
+import { loginRequest } from "@services/UserService";
+import { AuthenticationRequest, StatusMessage } from "@types";
 import useAuth from "hooks/useAuth";
 import { useTranslations } from "use-intl";
 
@@ -43,23 +43,22 @@ export default function UserLoginForm() {
 
     if (!validate()) return;
 
+    const authRequest: AuthenticationRequest = {
+      username: form.name,
+      password: form.password,
+    };
+
     try {
-      const loggedInUser = await UserService.login({
-        username: form.name,
-        password: form.password,
-      });
+      const loggedInUser = await loginRequest(authRequest);
 
       setStatusMessages([{ message: t("success"), type: "success" }]);
       login(loggedInUser);
 
-      setTimeout(() => router.push("/"), 2000);
+      setTimeout(() => router.push("/"), 500);
     } catch (error) {
-      setStatusMessages([
-        {
-          message: (error as Error).message || t("general.error"),
-          type: "error",
-        },
-      ]);
+      const code = (error as Error).message;
+      const messageKey = ["401", "409", "500"].includes(code) ? code : "network";
+      setStatusMessages([{ message: t(`error.${messageKey}`), type: "error" }]);
     }
   };
 
