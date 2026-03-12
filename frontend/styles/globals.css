@@ -1,56 +1,37 @@
-@import "./themes/ucll.css";
-@import "./themes/latte.css";
-@import "./themes/mocha.css";
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Base styles */
-#__next {
-  @apply flex flex-col w-full h-full;
-}
-
 h1 {
-  @apply font-extrabold text-3xl my-3 text-tx-secondary;
+  @apply font-extrabold text-3xl my-3 text-200;
 }
-
 h2 {
-  @apply font-bold text-3xl my-3 text-tx-secondary;
+  @apply font-bold text-3xl my-3 text-200;
 }
-
 h3 {
-  @apply font-bold text-2xl my-2 text-tx-secondary;
+  @apply font-bold text-2xl my-2 text-200;
 }
-
 h4 {
-  @apply font-semibold text-2xl my-2 text-tx-secondary;
+  @apply font-semibold text-2xl my-2 text-200;
 }
-
 h5 {
-  @apply font-bold text-xl my-1 text-tx-secondary;
+  @apply font-bold text-xl my-1 text-200;
 }
-
 h6 {
-  @apply font-semibold text-xl my-1 text-tx-secondary;
+  @apply font-semibold text-xl my-1 text-200;
 }
-
 p {
-  @apply text-tx-primary;
+  @apply text-100;
 }
-
 a {
-  @apply text-tx-primary;
+  @apply text-100;
 }
-
-a:hover {
-  @apply text-accent-primary;
-}
-
 label {
-  @apply text-tx-primary;
+  @apply text-100;
 }
-
+a:hover {
+  @apply text-blue;
+}
 a:hover h1,
 a:hover h2,
 a:hover h3,
@@ -58,59 +39,71 @@ a:hover h4,
 a:hover h5,
 a:hover h6,
 a:hover p {
-  @apply text-accent-primary;
+  @apply text-blue;
 }
 
-/* Utilities */
 @layer utilities {
-  .bg-gradient-1 {
-    background-image: var(--gradient-1);
-  }
-
-  .bg-gradient-2 {
-    background-image: var(--gradient-2);
-  }
-
   .Center {
-    @apply flex items-center justify-center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
-
   .Wrapper {
-    @apply flex flex-1 min-h-0;
+    display: flex;
+    flex: 1 1 0%;
+    min-height: 0;
   }
-
   .Gap {
-    @apply gap-3;
+    gap: 0.75rem;
   }
-
   .Padding {
-    @apply Gap px-6 py-3;
+    gap: 0.75rem;
+    padding: 0.75rem 1.5rem;
   }
-
   .Border {
-    @apply border-2 rounded-md border-tx-secondary;
+    border-width: 2px;
+    border-radius: 0.375rem;
+    @apply border-600;
   }
 }
 
-/* Components */
 @layer components {
   .btn {
-    @apply Center Padding Border rounded bg-gradient-1 text-tx-primary cursor-pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1.5rem;
+    border-width: 2px;
+    border-radius: 0.375rem;
+    @apply bg-blue text-800 border-blue cursor-pointer;
   }
-
   .btn:hover {
-    @apply bg-accent-primary text-tx-secondary border-accent-secondary;
+    @apply bg-cyan border-cyan;
   }
-
   .btn-secondary {
-    @apply Center Border rounded bg-tx-secondary cursor-pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1.5rem;
+    border-width: 2px;
+    border-radius: 0.375rem;
+    @apply text-100 border-600 cursor-pointer;
   }
-
   .btn-secondary:hover {
-    @apply bg-tx-secondary bg-opacity-30 text-tx-secondary;
+    @apply bg-700;
   }
-
   .input {
-    @apply Padding Border w-full bg-secondary focus:outline-none focus:ring-2 focus:ring-accent-primary;
+    gap: 0.75rem;
+    padding: 0.75rem 1.5rem;
+    border-width: 2px;
+    border-radius: 0.375rem;
+    width: 100%;
+    @apply bg-700 text-100 border-600;
+  }
+  .input:focus {
+    outline: none;
+    @apply ring-2 ring-blue;
   }
 }

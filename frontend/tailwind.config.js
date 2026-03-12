@@ -1,27 +1,17 @@
-/** @type {import('tailwindcss').Config} */
+const { base16Tailwind } = require("@donovanglover/base16-tailwind");
+const { themesByFamily } = require("./styles/themes/themes");
+
+const allThemes = Object.values(themesByFamily)
+  .flat()
+  .map((t) => t.value);
+
 module.exports = {
   content: [
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./styles/**/*.{css,scss}",
   ],
-  safelist: ["min-h-0"],
-  theme: {
-    extend: {
-      colors: {
-        primary: "var(--bg-1)",
-        secondary: "var(--bg-2)",
-        "tx-primary": "var(--text-1)",
-        "tx-secondary": "var(--text-2)",
-        "accent-primary": "var(--accent-1)",
-        "accent-secondary": "var(--accent-2)",
-        "code-loading": "var(--code-loading)",
-        "code-error": "var(--code-error)",
-        "code-success": "var(--code-success)",
-        "theme-border": "var(--border)",
-      },
-    },
-  },
-  plugins: [],
+  safelist: ["min-h-0", ...allThemes],
+  // safelist: ["min-h-0"],
+  plugins: [base16Tailwind],
 };

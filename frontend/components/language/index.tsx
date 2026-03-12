@@ -1,5 +1,4 @@
 "use client";
-
 import { Menu, MenuButton, MenuItems, MenuItem } from "@headlessui/react";
 import { useRouter, usePathname, useParams } from "next/navigation";
 import { useTransition } from "react";
@@ -32,14 +31,13 @@ export default function Language() {
       <MenuButton className="btn">
         {currentLanguageLabel} <span className="ml-2">▾</span>
       </MenuButton>
-
-      <MenuItems className="absolute Padding right-0 focus:outline-none">
-        <MenuItems className="Wrapper Border flex-col bg-primary">
+      <MenuItems className="absolute Padding right-0 focus:outline-none z-50">
+        <div className="Wrapper Border flex-col bg-800">
           {languages.map((lang) => (
             <MenuItem key={lang.value}>
               {({ active }) => (
                 <button
-                  className={`flex Padding ${active ? "bg-secondary text-tx-secondary" : "text-tx-primary"}`}
+                  className={`flex Padding text-100 ${active ? "bg-700" : ""}`}
                   onClick={() => handleLanguageChange(lang.value)}
                 >
                   {lang.label}
@@ -47,7 +45,7 @@ export default function Language() {
               )}
             </MenuItem>
           ))}
-        </MenuItems>
+        </div>
       </MenuItems>
     </Menu>
   );

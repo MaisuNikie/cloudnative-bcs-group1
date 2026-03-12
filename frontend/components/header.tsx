@@ -7,9 +7,7 @@ import ThemeChanger from "./theme";
 
 export default function Header() {
   const router = useRouter();
-
   const { user, logout } = useAuth();
-
   const t = useTranslations("header");
 
   const handleLogout = () => {
@@ -22,12 +20,12 @@ export default function Header() {
   };
 
   return (
-    <header className="flex max-h-min border-b bg-primary">
+    <header className="flex max-h-min border-b border-600 bg-700">
       <div className="Wrapper Padding justify-between overflow-visible">
         <div className="Center">
           <h4>{user ? `Logged in as ${user.username}` : t("welcome")}</h4>
         </div>
-        <div className="flex Padding">
+        <div className="flex Padding gap-3">
           <button onClick={user ? handleLogout : handleLogin} aria-label={user ? "Log out" : "Log in"} className="btn">
             <span className="material-symbols-outlined" aria-hidden="true">
               {user ? "logout" : "login"}

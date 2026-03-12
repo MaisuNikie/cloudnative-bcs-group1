@@ -1,5 +1,4 @@
 "use client";
-
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { loginRequest } from "@services/UserService";
@@ -11,11 +10,9 @@ export default function UserLoginForm() {
   const [form, setForm] = useState({ name: "", password: "" });
   const [errors, setErrors] = useState<{ name?: string; password?: string }>({});
   const [statusMessages, setStatusMessages] = useState<StatusMessage[]>([]);
-
   const router = useRouter();
   const { login } = useAuth();
   const t = useTranslations("UserLoginForm");
-
   const fields = ["name", "password"] as const;
 
   const handleChange = (field: "name" | "password", value: string) => {
@@ -24,10 +21,8 @@ export default function UserLoginForm() {
 
   const validate = () => {
     const newErrors: typeof errors = {};
-
     if (!form.name.trim()) newErrors.name = t("validate.error");
     if (!form.password.trim()) newErrors.password = t("validate.error");
-
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -40,20 +35,15 @@ export default function UserLoginForm() {
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
     clearMessages();
-
     if (!validate()) return;
-
     const authRequest: AuthenticationRequest = {
       username: form.name,
       password: form.password,
     };
-
     try {
       const loggedInUser = await loginRequest(authRequest);
-
       setStatusMessages([{ message: t("success"), type: "success" }]);
       login(loggedInUser);
-
       setTimeout(() => router.push("/"), 500);
     } catch (error) {
       const code = (error as Error).message;
@@ -63,14 +53,13 @@ export default function UserLoginForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex Padding Border flex-col">
+    <form onSubmit={handleSubmit} className="flex Padding Border Gap flex-col bg-800">
       {fields.map((field) => (
         <div key={field} className="Wrapper flex-col">
           <div className="flex gap-1">
             <label htmlFor={`${field}Input`}>{t(`label.${field === "name" ? "username" : "password"}`)}</label>
-            <div className="min-h-6 text-code-error">{errors[field] || ""}</div>
+            <div className="min-h-6 text-red">{errors[field] || ""}</div>
           </div>
-
           <input
             id={`${field}Input`}
             type={field === "password" ? "password" : "text"}
@@ -80,15 +69,15 @@ export default function UserLoginForm() {
           />
         </div>
       ))}
-
       <div className="Wrapper Gap items-center">
         <button className="btn" type="submit">
           {t("button")}
         </button>
-
         <ul>
           {statusMessages.map(({ message, type }, index) => (
-            <li key={index}>{message}</li>
+            <li key={index} className={type === "error" ? "text-red" : "text-green"}>
+              {message}
+            </li>
           ))}
         </ul>
       </div>
