@@ -1,0 +1,30 @@
+{
+  "general": {
+    "error": "Er is een foutmelding, probeer later opnieuw."
+  },
+  "header": {
+    "welcome": "Welkom!",
+    "nav": {
+      "home": "Thuis",
+      "login": "Inloggen",
+      "logout": "Uitloggen"
+    }
+  },
+  "UserLoginForm": {
+    "button": "Inloggen",
+    "label": {
+      "username": "Gebruikersnaam",
+      "password": "Wachtwoord"
+    },
+    "validate": {
+      "error": " - Ontbreekt"
+    },
+    "error": {
+      "401": "Ongeldige gebruikersnaam of wachtwoord.",
+      "409": "Deze gebruikersnaam is al in gebruik.",
+      "500": "Er is een onverwachte fout opgetreden. Probeer later opnieuw.",
+      "network": "Kan geen verbinding maken met de server."
+    },
+    "success": "Inloggen gelukt. Doorsturen..."
+  }
+}

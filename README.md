@@ -1,19 +1,21 @@
 # cloudnative-bcs-group1
-- Include `.env` to make docker-compose work
-- You can't leave the passwords empty they have to be filled in.
+You will need `docker`, `docker-compose`, and [Git for Windows](https://gitforwindows.org/) to run this project.
 
-#### Example `.env`
-```.env
-# Mongo
-MONGO_ROOT_USERNAME=admin
-MONGO_ROOT_PASSWORD=
+Use the correct script to start the project, it should take care of everything automaticly
 
-# Mongo Express
-ME_ADMIN_USERNAME=admin
-ME_ADMIN_PASSWORD=
-ME_BASIC_AUTH_USERNAME=admin
-ME_BASIC_AUTH_PASSWORD=
-
-# Backend
-ME_CONFIG_MONGODB_URL: mongodb://${MONGO_ROOT_USERNAME}:${MONGO_ROOT_PASSWORD}@mongo:27017/
+## Starting project
+### Linux / macOS:
+```bash
+./start-dev.sh
+./start-dev.sh --verbose
 ```
+### Windows (PowerShell):
+```cmd
+.\start-dev.ps1
+.\start-dev.ps1 -Verbose
+```
+
+## Frontend
+Libraries used for the frontedn:
+- [Headless UI](https://headlessui.com/)
+## Backend

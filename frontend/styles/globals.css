@@ -1,0 +1,109 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+h1 {
+  @apply font-extrabold text-3xl my-3 text-200;
+}
+h2 {
+  @apply font-bold text-3xl my-3 text-200;
+}
+h3 {
+  @apply font-bold text-2xl my-2 text-200;
+}
+h4 {
+  @apply font-semibold text-2xl my-2 text-200;
+}
+h5 {
+  @apply font-bold text-xl my-1 text-200;
+}
+h6 {
+  @apply font-semibold text-xl my-1 text-200;
+}
+p {
+  @apply text-100;
+}
+a {
+  @apply text-100;
+}
+label {
+  @apply text-100;
+}
+a:hover {
+  @apply text-blue;
+}
+a:hover h1,
+a:hover h2,
+a:hover h3,
+a:hover h4,
+a:hover h5,
+a:hover h6,
+a:hover p {
+  @apply text-blue;
+}
+
+@layer utilities {
+  .Center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .Wrapper {
+    display: flex;
+    flex: 1 1 0%;
+    min-height: 0;
+  }
+  .Gap {
+    gap: 0.75rem;
+  }
+  .Padding {
+    gap: 0.75rem;
+    padding: 0.75rem 1.5rem;
+  }
+  .Border {
+    border-width: 2px;
+    border-radius: 0.375rem;
+    @apply border-600;
+  }
+}
+
+@layer components {
+  .btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1.5rem;
+    border-width: 2px;
+    border-radius: 0.375rem;
+    @apply bg-blue text-800 border-blue cursor-pointer;
+  }
+  .btn:hover {
+    @apply bg-cyan border-cyan;
+  }
+  .btn-secondary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1.5rem;
+    border-width: 2px;
+    border-radius: 0.375rem;
+    @apply text-100 border-600 cursor-pointer;
+  }
+  .btn-secondary:hover {
+    @apply bg-700;
+  }
+  .input {
+    gap: 0.75rem;
+    padding: 0.75rem 1.5rem;
+    border-width: 2px;
+    border-radius: 0.375rem;
+    width: 100%;
+    @apply bg-700 text-100 border-600;
+  }
+  .input:focus {
+    outline: none;
+    @apply ring-2 ring-blue;
+  }
+}
